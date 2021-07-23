@@ -125,6 +125,10 @@ class LottoLotteryActivity : AppCompatActivity() {
             textView.isVisible = false
 
             pickSetNumber.remove(checkTop1)
+            pickSetNumber.forEachIndexed { index, i ->
+                Log.d("setIndex", "$index")
+                Log.d("setIndexI", "$i")
+            }
             Log.d("pickNumberRemove", "$pickSetNumber")
         }
     }
