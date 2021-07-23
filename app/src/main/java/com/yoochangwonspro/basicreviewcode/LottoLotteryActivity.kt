@@ -58,6 +58,8 @@ class LottoLotteryActivity : AppCompatActivity() {
             textView.text = number_picker.value.toString()
             textView.isVisible = true
             pickSetNumber.add(number_picker.value)
+            Log.d("pickNumberAdd", "$pickSetNumber")
+            Log.d("pickNumberAdd", "${pickSetNumber.size}")
 
             testViewBackGround(number_picker.value, textView)
         }
@@ -117,11 +119,13 @@ class LottoLotteryActivity : AppCompatActivity() {
 
     private fun initRemoveButton() {
         remove_btn.setOnClickListener {
-            val checkTop: Int = pickSetNumber.size - 1
-            val textView = numberTextView[checkTop]
+            val checkTop1: Int = pickSetNumber.size
+            val checkTop2: Int = pickSetNumber.size - 1
+            val textView = numberTextView[checkTop2]
             textView.isVisible = false
 
-            pickSetNumber.remove(checkTop)
+            pickSetNumber.remove(checkTop1)
+            Log.d("pickNumberRemove", "$pickSetNumber")
         }
     }
 }
