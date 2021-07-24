@@ -125,7 +125,7 @@ class LottoLotteryActivity : AppCompatActivity() {
             val textView = numberTextView[checkTop2]
             textView.isVisible = false
 
-            pickSetNumber.remove(checkTop2)
+            pickSetNumber.remove(checkTop1)
             pickSetNumber.forEachIndexed { index, i ->
                 Log.d("setIndex", "$index")
                 Log.d("IndexI", "$i")
