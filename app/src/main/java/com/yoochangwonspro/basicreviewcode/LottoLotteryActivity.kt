@@ -90,8 +90,9 @@ class LottoLotteryActivity : AppCompatActivity() {
         random_btn.setOnClickListener {
             val randomList = getRandomNumber()
 
+            checkReset = true
+
             randomList.forEachIndexed { index, number ->
-                checkReset = true
 
                 val textView = numberTextView[index]
                 textView.isVisible = true
@@ -124,10 +125,10 @@ class LottoLotteryActivity : AppCompatActivity() {
             val textView = numberTextView[checkTop2]
             textView.isVisible = false
 
-            pickSetNumber.remove(checkTop1)
+            pickSetNumber.remove(checkTop2)
             pickSetNumber.forEachIndexed { index, i ->
                 Log.d("setIndex", "$index")
-                Log.d("setIndexI", "$i")
+                Log.d("IndexI", "$i")
             }
             Log.d("pickNumberRemove", "$pickSetNumber")
         }
