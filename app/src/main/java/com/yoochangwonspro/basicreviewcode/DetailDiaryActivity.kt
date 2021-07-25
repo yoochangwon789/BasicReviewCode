@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.core.content.edit
+import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_detail_diary.*
 
 class DetailDiaryActivity : AppCompatActivity() {
@@ -23,6 +24,11 @@ class DetailDiaryActivity : AppCompatActivity() {
             diarySharedPreference.edit {
                 putString("diary", detail_diary_edit_text.text.toString())
             }
+        }
+
+        detail_diary_edit_text.addTextChangedListener {
+            handler.removeCallbacks(runnable)
+            handler.postDelayed(runnable, 500)
         }
     }
 }
