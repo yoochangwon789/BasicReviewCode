@@ -51,6 +51,11 @@ class SecretDiaryActivity : AppCompatActivity() {
 
         secret_open_btn.setOnClickListener {
 
+            if (secretCheckPassword) {
+                Toast.makeText(this, "비밀번호 변경중엔 열지 못합니다.", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             if (sp.getString("passwordReview", "000").equals(
                     "${secretNumberPikerOne.value}${secretNumberPikerTwo.value}${secretNumberPikerThree.value}"
                 )
