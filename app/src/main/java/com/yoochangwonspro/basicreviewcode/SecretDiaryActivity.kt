@@ -1,10 +1,13 @@
 package com.yoochangwonspro.basicreviewcode
 
 import android.content.Context
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.NumberPicker
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.edit
 import kotlinx.android.synthetic.main.activity_secret_diary.*
 
 class SecretDiaryActivity : AppCompatActivity() {
@@ -44,6 +47,7 @@ class SecretDiaryActivity : AppCompatActivity() {
         secretNumberPikerThree
 
         initSecretOpenButton()
+        initSecretChangePasswordButton()
     }
 
     private fun initSecretOpenButton() {
@@ -55,6 +59,34 @@ class SecretDiaryActivity : AppCompatActivity() {
                 // 성공시 다이러리 창으로 이동
             } else {
                 falsePasswordPopUp()
+            }
+        }
+    }
+
+    private fun initSecretChangePasswordButton() {
+        val sp = getSharedPreferences("password", Context.MODE_PRIVATE)
+        val password = "${secretNumberPikerOne.value}" +
+                "${secretNumberPikerTwo.value}${secretNumberPikerThree.value}"
+
+        secret_password_change.setOnClickListener {
+
+            if (secretCheckPassword) {
+                sp.edit(true) {
+                    putString("password", password)
+                }
+
+                secretCheckPassword = false
+                secret_password_change.setBackgroundColor(Color.BLACK)
+            }
+            else {
+
+                if (sp.getString("password", "000").equals(password)) {
+
+                    secretCheckPassword = true
+                    Toast.makeText(this, "변경할 패스워드를 입력해주세요.", Toast.LENGTH_LONG).show()
+                    secret_password_change.setBackgroundColor(Color.RED)
+                }
+                else falsePasswordPopUp()
             }
         }
     }
