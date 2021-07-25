@@ -18,8 +18,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="#ffffff"
         android:gravity="top"
-        android:padding="15dp"
-        android:hint="내용을 입력해주세요."
-        android:textColorHint="#000000"/>
+        android:padding="15dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
