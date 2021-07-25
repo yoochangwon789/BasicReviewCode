@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.core.content.edit
 import kotlinx.android.synthetic.main.activity_detail_diary.*
 
 class DetailDiaryActivity : AppCompatActivity() {
@@ -18,6 +19,10 @@ class DetailDiaryActivity : AppCompatActivity() {
         val diarySharedPreference = getSharedPreferences("diary", Context.MODE_PRIVATE)
         detail_diary_edit_text.setText(diarySharedPreference.getString("diary", ""))
 
-
+        val runnable = Runnable {
+            diarySharedPreference.edit {
+                putString("diary", detail_diary_edit_text.text.toString())
+            }
+        }
     }
 }
