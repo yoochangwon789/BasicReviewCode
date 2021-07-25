@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicReviewCode">
-        <activity android:name=".DetailDiaryActivity"></activity>
+        <activity android:name=".DetailDiaryActivity"
+            android:theme="@style/Theme.BasicReviewCodeNoTopBar"></activity>
         <activity
             android:name=".SecretDiaryActivity"
             android:theme="@style/Theme.BasicReviewCodeNoTopBar">
