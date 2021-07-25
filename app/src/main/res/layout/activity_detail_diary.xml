@@ -9,6 +9,7 @@
     android:padding="20dp">
 
     <EditText
+        android:id="@+id/detail_diary_edit_text"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="#ffffff"
-        android:gravity="top|left"
+        android:gravity="top"
         android:padding="15dp"
         android:hint="내용을 입력해주세요."
         android:textColorHint="#000000"/>
