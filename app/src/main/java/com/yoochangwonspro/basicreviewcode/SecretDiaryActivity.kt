@@ -30,8 +30,14 @@ class SecretDiaryActivity : AppCompatActivity() {
             }
     }
 
+    private var secretCheckPassword: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_secret_diary)
+
+        secretNumberPikerOne
+        secretNumberPikerTwo
+        secretNumberPikerThree
     }
 }
