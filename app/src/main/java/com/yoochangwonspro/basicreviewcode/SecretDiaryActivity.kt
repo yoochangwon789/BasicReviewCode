@@ -1,5 +1,6 @@
 package com.yoochangwonspro.basicreviewcode
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.NumberPicker
@@ -11,24 +12,24 @@ class SecretDiaryActivity : AppCompatActivity() {
     private val secretNumberPikerOne: NumberPicker by lazy {
         findViewById<NumberPicker>(R.id.secret_number_picker_one)
             .apply {
-                this.minValue = 1
-                this.maxValue = 45
+                this.minValue = 0
+                this.maxValue = 9
             }
     }
 
     private val secretNumberPikerTwo: NumberPicker by lazy {
         findViewById<NumberPicker>(R.id.secret_number_picker_two)
             .apply {
-                this.minValue = 1
-                this.maxValue = 45
+                this.minValue = 0
+                this.maxValue = 9
             }
     }
 
     private val secretNumberPikerThree: NumberPicker by lazy {
         findViewById<NumberPicker>(R.id.secret_number_picker_three)
             .apply {
-                this.minValue = 1
-                this.maxValue = 45
+                this.minValue = 0
+                this.maxValue = 9
             }
     }
 
@@ -41,14 +42,19 @@ class SecretDiaryActivity : AppCompatActivity() {
         secretNumberPikerOne
         secretNumberPikerTwo
         secretNumberPikerThree
+
+        initSecretOpenButton()
     }
 
     private fun initSecretOpenButton() {
         secret_open_btn.setOnClickListener {
-            if (secretCheckPassword) {
-                // 다이어리 페이지로 이동
+            val sp = getSharedPreferences("password", Context.MODE_PRIVATE)
+
+            if (sp.getString("password", "000").equals("${secretNumberPikerOne.value}" +
+                        "${secretNumberPikerTwo.value}${secretNumberPikerThree.value}")) {
+                // 성공시 다이러리 창으로 이동
             } else {
-                // 패스워드 불일치일 경우 다이로그 창 띄우기
+                falsePasswordPopUp()
             }
         }
     }
