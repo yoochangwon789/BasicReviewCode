@@ -1,6 +1,7 @@
 package com.yoochangwonspro.basicreviewcode
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -60,7 +61,9 @@ class SecretDiaryActivity : AppCompatActivity() {
                     "${secretNumberPikerOne.value}${secretNumberPikerTwo.value}${secretNumberPikerThree.value}"
                 )
             ) {
-                // 다이어리 페이지로 이동
+                startActivity(
+                    Intent(this, DetailDiaryActivity::class.java)
+                )
             }
             else {
                 falsePasswordPopUp()
