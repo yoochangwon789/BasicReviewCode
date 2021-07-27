@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import java.lang.NumberFormatException
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -112,6 +113,14 @@ class CalculatorActivity : AppCompatActivity() {
         hasOperator = true
     }
 
+    private fun calculatorExpression(): String {
+        val expressionTexts = expressionTextView.text.split(" ")
+
+        if (expressionTexts[1].isEmpty() || expressionTexts.size != 3) {
+            return ""
+        }
+    }
+
     private fun calculatorClearButton(v: View) {
 
     }
@@ -122,5 +131,14 @@ class CalculatorActivity : AppCompatActivity() {
 
     fun calculatorHistoryButton(v: View) {
 
+    }
+}
+
+fun String.isNumber(): Boolean {
+    return try {
+        this.toBigInteger()
+        true
+    } catch (e: NumberFormatException) {
+        false
     }
 }
