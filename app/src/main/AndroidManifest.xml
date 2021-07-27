@@ -9,18 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicReviewCode">
-        <activity android:name=".DetailDiaryActivity"
-            android:theme="@style/Theme.BasicReviewCodeNoTopBar"></activity>
-        <activity
-            android:name=".SecretDiaryActivity"
-            android:theme="@style/Theme.BasicReviewCodeNoTopBar">
+        <activity android:name=".CalculatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LottoLotteryActivity"></activity>
+        <activity
+            android:name=".DetailDiaryActivity"
+            android:theme="@style/Theme.BasicReviewCodeNoTopBar" />
+        <activity
+            android:name=".SecretDiaryActivity"
+            android:theme="@style/Theme.BasicReviewCodeNoTopBar">
+
+        </activity>
+        <activity android:name=".LottoLotteryActivity" />
         <activity android:name=".MainActivity" />
     </application>
 
