@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -53,7 +54,10 @@ class CalculatorActivity : AppCompatActivity() {
 
         val expressionTexts = expressionTextView.text.split(" ")
 
-
+        if (expressionTexts.isNotEmpty() && expressionTexts.last().length > 15) {
+            Toast.makeText(this, "15자리 까지 입력할 수 있습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         expressionTextView.append(number)
     }
