@@ -1,5 +1,6 @@
 package com.yoochangwonspro.basicreviewcode
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -73,11 +74,28 @@ class CalculatorActivity : AppCompatActivity() {
         expressionTextView.append(number)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun calculatorOperatorButton(operator: String) {
 
         if (expressionTextView.text.isEmpty()) {
             return
         }
+
+        when {
+            isOperator -> {
+                val text = expressionTextView.text.toString().dropLast(1) + operator
+                expressionTextView.text = text
+            }
+            hasOperator -> {
+                Toast.makeText(this, "연산자는 2개가 연속으로 올 수 없습니다.", Toast.LENGTH_SHORT).show()
+                return
+            }
+            else -> {
+                expressionTextView.append(" $operator")
+            }
+        }
+
+
     }
 
     private fun calculatorClearButton(v: View) {
