@@ -3,6 +3,9 @@ package com.yoochangwonspro.basicreviewcode
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -95,7 +98,18 @@ class CalculatorActivity : AppCompatActivity() {
             }
         }
 
+        val ssp = SpannableStringBuilder(expressionTextView.text)
+        ssp.setSpan(
+            ForegroundColorSpan(getColor(R.color.expressionButton)),
+            expressionTextView.text.length - 1,
+            expressionTextView.text.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
+        expressionTextView.text = ssp
+
+        isOperator = true
+        hasOperator = true
     }
 
     private fun calculatorClearButton(v: View) {
