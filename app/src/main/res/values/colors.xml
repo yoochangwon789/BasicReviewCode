@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <color name="buttonBackGround">#4D53C1</color>
-    <color name="resultButtonBackGround">#9570D8</color>
+    <color name="buttonBackGround">#333030</color>
+    <color name="expressionButton">#EA9B46</color>
+    <color name="resultButtonBackGround">#887A7A</color>
 </resources>

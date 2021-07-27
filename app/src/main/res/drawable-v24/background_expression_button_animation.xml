@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/buttonBackGround">
+    android:color="@color/expressionButton">
 
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
-            <solid android:color="@color/buttonBackGround" />
+            <solid android:color="@color/expressionButton" />
             <corners android:radius="100dp" />
 
         </shape>
