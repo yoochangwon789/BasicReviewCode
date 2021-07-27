@@ -74,6 +74,10 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun calculatorOperatorButton(operator: String) {
+
+        if (expressionTextView.text.isEmpty()) {
+            return
+        }
     }
 
     private fun calculatorClearButton(v: View) {
