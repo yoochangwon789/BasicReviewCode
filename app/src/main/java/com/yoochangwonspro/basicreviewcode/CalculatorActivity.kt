@@ -140,7 +140,10 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     fun calculatorClearButton(v: View) {
-
+        expressionTextView.text = ""
+        resultTextView.text = ""
+        isOperator = false
+        hasOperator = false
     }
 
     fun calculatorResultButton(v: View) {
