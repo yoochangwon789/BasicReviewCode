@@ -24,7 +24,7 @@ class CalculatorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calculator)
     }
 
-    private fun calculatorButton(v: View) {
+    fun calculatorButton(v: View) {
         when (v.id) {
             R.id.calculator_zero_btn -> calculatorNumberButton("0")
             R.id.calculator_one_btn -> calculatorNumberButton("1")
@@ -46,10 +46,19 @@ class CalculatorActivity : AppCompatActivity() {
 
     private fun calculatorNumberButton(number: String) {
 
+        if (isOperator) {
+            expressionTextView.append(" ")
+        }
+        isOperator = false
+
+        val expressionTexts = expressionTextView.text.split(" ")
+
+
+
+        expressionTextView.append(number)
     }
 
     private fun calculatorOperatorButton(operator: String) {
-
     }
 
     private fun calculatorClearButton(v: View) {
