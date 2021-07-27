@@ -116,8 +116,24 @@ class CalculatorActivity : AppCompatActivity() {
     private fun calculatorExpression(): String {
         val expressionTexts = expressionTextView.text.split(" ")
 
-        if (expressionTexts[1].isEmpty() || expressionTexts.size != 3) {
+        if (hasOperator.not() || expressionTexts.size != 3) {
             return ""
+        }
+        if (expressionTexts[0].isNumber().not() || expressionTexts[2].isNumber().not()) {
+            return ""
+        }
+
+        val firstNumber = expressionTexts[0].toBigInteger()
+        val secondNumber = expressionTexts[2].toBigInteger()
+        val op = expressionTexts[1]
+
+        return when (op) {
+            "+" -> (firstNumber + secondNumber).toString()
+            "-" -> (firstNumber - secondNumber).toString()
+            "*" -> (firstNumber * secondNumber).toString()
+            "/" -> (firstNumber / secondNumber).toString()
+            "%" -> (firstNumber % secondNumber).toString()
+            else -> ""
         }
     }
 
