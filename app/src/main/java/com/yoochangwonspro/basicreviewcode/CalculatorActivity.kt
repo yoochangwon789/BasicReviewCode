@@ -147,7 +147,22 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     fun calculatorResultButton(v: View) {
+        val expressionTexts = expressionTextView.text.split(" ")
 
+        if (expressionTexts.isEmpty()) {
+            Toast.makeText(this, "값이 없습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (hasOperator && expressionTexts.last().isEmpty()) {
+            Toast.makeText(this, "수식이 완성되지 않았습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (expressionTexts[0].isNumber().not() || expressionTexts[2].isNumber().not()) {
+            Toast.makeText(this, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
     }
 
     fun calculatorHistoryButton(v: View) {
