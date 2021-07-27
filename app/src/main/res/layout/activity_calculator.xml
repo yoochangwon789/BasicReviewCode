@@ -33,26 +33,42 @@
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_clear_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:onClick="calculatorClearButton"
+                android:text="AC"
+                android:textSize="24sp"
+                android:background="@drawable/background_result_button_animation"
+                android:layout_margin="7dp"/>
+
+            <ImageButton
+                android:id="@+id/calculator_history_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="calculatorHistoryButton"
+                android:background="@drawable/background_result_button_animation"
+                android:layout_margin="7dp"
+                android:src="@drawable/ic_baseline_access_time_24"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_modulo_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="calculatorButton"
+                android:text="%"
+                android:textSize="24sp"
                 android:background="@drawable/background_result_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_divider_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/background_result_button_animation"
-                android:layout_margin="7dp"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/background_result_button_animation"
-                android:layout_margin="7dp"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:onClick="calculatorButton"
+                android:text="÷"
+                android:textSize="30sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_expression_button_animation"
                 android:layout_margin="7dp"/>
 
@@ -62,26 +78,46 @@
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_seven_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="7"
+                android:onClick="calculatorButton"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_eight_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="8"
+                android:onClick="calculatorButton"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_nine_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="9"
+                android:onClick="calculatorButton"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_multi_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="x"
+                android:onClick="calculatorButton"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_expression_button_animation"
                 android:layout_margin="7dp"/>
 
@@ -91,26 +127,46 @@
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_four_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="4"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_five_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="5"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_six_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="6"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_minus_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="-"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_expression_button_animation"
                 android:layout_margin="7dp"/>
 
@@ -120,26 +176,46 @@
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_one_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="1"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_two_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="2"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_three_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="3"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_plus_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="+"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_expression_button_animation"
                 android:layout_margin="7dp"/>
 
@@ -149,26 +225,46 @@
             android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_zero_btn"
+                android:onClick="calculatorButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="( )"
+                android:clickable="false"
+                android:enabled="false"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="."
+                android:clickable="false"
+                android:enabled="false"
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_button_animation"
                 android:layout_margin="7dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/calculator_result_btn"
+                android:onClick="calculatorResultButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="="
+                android:textSize="24sp"
+                android:textColor="@color/white"
                 android:background="@drawable/background_expression_button_animation"
                 android:layout_margin="7dp"/>
 
