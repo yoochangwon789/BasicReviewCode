@@ -76,6 +76,8 @@ class CalculatorActivity : AppCompatActivity() {
         }
 
         expressionTextView.append(number)
+
+        resultTextView.text = calculatorExpression()
     }
 
     @SuppressLint("SetTextI18n")
@@ -91,7 +93,7 @@ class CalculatorActivity : AppCompatActivity() {
                 expressionTextView.text = text
             }
             hasOperator -> {
-                Toast.makeText(this, "연산자는 2개가 연속으로 올 수 없습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "연산자는 2개는 사용할 수 없습니다.", Toast.LENGTH_SHORT).show()
                 return
             }
             else -> {
@@ -137,11 +139,11 @@ class CalculatorActivity : AppCompatActivity() {
         }
     }
 
-    private fun calculatorClearButton(v: View) {
+    fun calculatorClearButton(v: View) {
 
     }
 
-    private fun calculatorResultButton(v: View) {
+    fun calculatorResultButton(v: View) {
 
     }
 
