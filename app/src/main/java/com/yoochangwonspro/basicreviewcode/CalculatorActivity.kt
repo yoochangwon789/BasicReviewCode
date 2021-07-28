@@ -184,8 +184,8 @@ class CalculatorActivity : AppCompatActivity() {
             return
         }
 
-        val expression = calculatorExpression()
-        val result = resultTextView.text.toString()
+        val expression = resultTextView.text.toString()
+        val result = calculatorExpression()
 
         Thread{
             db.historyDao().insertHistory(History(null, expression, result))
