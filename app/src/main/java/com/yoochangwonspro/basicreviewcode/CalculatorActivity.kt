@@ -188,6 +188,10 @@ class CalculatorActivity : AppCompatActivity() {
     fun calculatorHistoryCloseButton(v: View) {
 
     }
+
+    fun calculatorHistoryDeleteAllButton(v: View) {
+
+    }
 }
 
 fun String.isNumber(): Boolean {

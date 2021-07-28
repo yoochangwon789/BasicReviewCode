@@ -362,6 +362,7 @@
             android:layout_margin="16dp"
             android:background="@drawable/background_expression_button_animation"
             android:text="검색 기록 모두 지우기"
+            android:onClick="calculatorHistoryDeleteAllButton"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
