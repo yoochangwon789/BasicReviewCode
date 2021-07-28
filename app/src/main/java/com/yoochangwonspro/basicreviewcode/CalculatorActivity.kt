@@ -86,16 +86,16 @@ class CalculatorActivity : AppCompatActivity() {
             Toast.makeText(this, "15자리 까지 입력할 수 있습니다.", Toast.LENGTH_SHORT).show()
             return
         }
+        else if (expressionTexts.last().isEmpty() && number == "0") {
+            Toast.makeText(this, "0은 첫째자리에 올 수 없습니다.", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         if (expressionTexts.first().isEmpty() && number == "0") {
             Toast.makeText(this, "0은 첫째자리에 올 수 없습니다.", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (expressionTexts.last().isEmpty() && number == "0") {
-            Toast.makeText(this, "0은 첫째자리에 올 수 없습니다.", Toast.LENGTH_SHORT).show()
-            return
-        }
 
         expressionTextView.append(number)
 
