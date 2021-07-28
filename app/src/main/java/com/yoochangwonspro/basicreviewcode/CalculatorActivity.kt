@@ -206,7 +206,11 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     fun calculatorHistoryDeleteAllButton(v: View) {
+        historyLinearLayout.removeAllViews()
 
+        Thread{
+            db.historyDao().deleteAll()
+        }.start()
     }
 }
 
