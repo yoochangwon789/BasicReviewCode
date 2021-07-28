@@ -11,6 +11,8 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.room.Room
+import com.yoochangwonspro.basicreviewcode.model.History
 import java.lang.NumberFormatException
 
 class CalculatorActivity : AppCompatActivity() {
@@ -40,6 +42,12 @@ class CalculatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
+
+        db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "historyDb"
+        ).build()
     }
 
     fun calculatorButton(v: View) {
