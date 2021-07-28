@@ -8,6 +8,7 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import java.lang.NumberFormatException
@@ -25,6 +26,16 @@ class CalculatorActivity : AppCompatActivity() {
     private var isOperator: Boolean = false
 
     private var hasOperator: Boolean = false
+
+    private val historyLayout: View by lazy {
+        findViewById(R.id.calculator_history_layout)
+    }
+
+    private val historyLinearLayout: LinearLayout by lazy {
+        findViewById(R.id.calculator_history_linear_layout)
+    }
+
+    lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
