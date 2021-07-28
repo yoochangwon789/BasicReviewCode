@@ -38,6 +38,14 @@ class CalculatorActivity : AppCompatActivity() {
         findViewById(R.id.calculator_history_linear_layout)
     }
 
+    private val historyExpressionTextView: TextView by lazy {
+        findViewById(R.id.calculator_history_expression_text_view)
+    }
+
+    private val historyResultTextView: TextView by lazy {
+        findViewById(R.id.calculator_history_result_text_view)
+    }
+
     lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
