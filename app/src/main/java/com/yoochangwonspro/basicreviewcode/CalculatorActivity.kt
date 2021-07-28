@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.room.Room
 import com.yoochangwonspro.basicreviewcode.model.History
 import java.lang.NumberFormatException
@@ -190,11 +191,11 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     fun calculatorHistoryButton(v: View) {
-
+        historyLayout.isVisible = true
     }
 
     fun calculatorHistoryCloseButton(v: View) {
-
+        historyLayout.isVisible = false
     }
 
     fun calculatorHistoryDeleteAllButton(v: View) {
