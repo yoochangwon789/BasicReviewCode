@@ -14,7 +14,8 @@
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="paren"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/calculator_history_expression_text_view"
         tools:text="1111111" />
 
@@ -22,7 +23,6 @@
         android:id="@+id/calculator_history_expression_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:gravity="top|end"
         android:textColor="@color/white"
         android:textSize="30sp"

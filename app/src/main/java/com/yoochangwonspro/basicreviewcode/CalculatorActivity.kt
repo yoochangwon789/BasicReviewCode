@@ -184,7 +184,10 @@ class CalculatorActivity : AppCompatActivity() {
             return
         }
 
-        expressionTextView.text = calculatorExpression()
+        val expression = calculatorExpression()
+        val result = resultTextView.text
+
+        expressionTextView.text = expression
         resultTextView.text = ""
         isOperator = false
         hasOperator = false
