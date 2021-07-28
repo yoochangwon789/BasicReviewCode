@@ -3,10 +3,12 @@ package com.yoochangwonspro.basicreviewcode
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -36,14 +38,6 @@ class CalculatorActivity : AppCompatActivity() {
 
     private val historyLinearLayout: LinearLayout by lazy {
         findViewById(R.id.calculator_history_linear_layout)
-    }
-
-    private val historyExpressionTextView: TextView by lazy {
-        findViewById(R.id.calculator_history_expression_text_view)
-    }
-
-    private val historyResultTextView: TextView by lazy {
-        findViewById(R.id.calculator_history_result_text_view)
     }
 
     lateinit var db: AppDatabase
@@ -192,14 +186,14 @@ class CalculatorActivity : AppCompatActivity() {
             return
         }
 
-        val expression = resultTextView.text.toString()
+        val expression = expressionTextView.text.toString()
         val result = calculatorExpression()
 
         Thread{
             db.historyDao().insertHistory(History(null, expression, result))
         }.start()
 
-        expressionTextView.text = expression
+        expressionTextView.text = calculatorExpression()
         resultTextView.text = ""
         isOperator = false
         hasOperator = false
@@ -207,6 +201,22 @@ class CalculatorActivity : AppCompatActivity() {
 
     fun calculatorHistoryButton(v: View) {
         historyLayout.isVisible = true
+        historyLinearLayout.removeAllViews()
+
+        Thread{
+            db.historyDao().getAll().reversed().forEach { history ->
+                runOnUiThread {
+                    val historyRow = LayoutInflater.from(this).inflate(R.layout.calculator_history_item_view, null, false)
+                    val historyExpression = historyRow.findViewById<TextView>(R.id.calculator_history_expression_text_view)
+                    val historyResult = historyRow.findViewById<TextView>(R.id.calculator_history_result_text_view)
+
+                    historyExpression.text = history.expression
+                    historyResult.text = history.result
+
+                    historyLinearLayout.addView(historyRow)
+                }
+            }
+        }.start()
     }
 
     fun calculatorHistoryCloseButton(v: View) {
