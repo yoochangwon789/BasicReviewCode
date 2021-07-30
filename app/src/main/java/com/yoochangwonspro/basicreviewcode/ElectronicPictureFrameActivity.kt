@@ -73,6 +73,12 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
         }
     }
 
+    private fun initPictureElectronicPictureFrame() {
+        pictureElectronicPictureFrameButton.setOnClickListener {
+
+        }
+    }
+
     private fun navigateImage() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
@@ -129,10 +135,6 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
                 //
             }
         }
-    }
-
-    private fun initPictureElectronicPictureFrame() {
-
     }
 
     private fun showPermissionContextPotUp() {
