@@ -1,5 +1,6 @@
 package com.yoochangwonspro.basicreviewcode
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,6 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 
@@ -32,9 +37,7 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
         }
     }
 
-    private val pictureUriList: List<Uri> by lazy {
-        mutableListOf<Uri>()
-    }
+    private val pictureUriList: MutableList<Uri> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +73,38 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
     }
 
     private fun navigateImage() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        startForResult.launch(intent)
+    }
 
+    private val startForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+
+        if (result.resultCode != Activity.RESULT_OK) {
+            Toast.makeText(this, "사진을 가져오지 못했습니다.", Toast.LENGTH_SHORT).show()
+            return@registerForActivityResult
+        }
+        else {
+            val intent = result.data
+            val selectedUri: Uri? = intent?.data
+
+            if (selectedUri != null) {
+                if (pictureUriList.size == 6) {
+                    Toast.makeText(this, "사진이 가득 찼습니다.", Toast.LENGTH_SHORT).show()
+                    return@registerForActivityResult
+                }
+
+                pictureUriList.add(selectedUri)
+                pictureFrameImageViewList[pictureUriList.size - 1]
+                    .setImageURI(selectedUri)
+            }
+            else {
+                Toast.makeText(this, "사진을 가져오지 못했습니다.", Toast.LENGTH_SHORT).show()
+                return@registerForActivityResult
+            }
+        }
     }
 
     override fun onRequestPermissionsResult(
