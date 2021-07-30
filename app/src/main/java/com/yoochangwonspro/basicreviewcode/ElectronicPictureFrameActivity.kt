@@ -16,7 +16,7 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
         findViewById(R.id.picture_frame_add_btn)
     }
 
-    private val pictureElectronicPictureFrame: Button by lazy {
+    private val pictureElectronicPictureFrameButton: Button by lazy {
         findViewById(R.id.picture_frame_start_frame)
     }
 
@@ -69,7 +69,7 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
     }
 
     private fun initPictureElectronicPictureFrame() {
-
+        pic
     }
 
     private fun showPermissionContextPotUp() {
