@@ -1,10 +1,13 @@
 package com.yoochangwonspro.basicreviewcode
 
+import android.content.Context
+import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 
 class ElectronicPictureFrameActivity : AppCompatActivity() {
 
@@ -40,7 +43,26 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
     }
 
     private fun initPictureAddButton() {
+        pictureAddButton.setOnClickListener {
+            when {
+                ContextCompat.checkSelfPermission(
+                    this, android.Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED -> {
 
+                }
+
+                shouldShowRequestPermissionRationale(
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE
+                ) -> {
+
+                }
+
+                else -> {
+
+                }
+            }
+
+        }
     }
 
     private fun initPictureElectronicPictureFrame() {
