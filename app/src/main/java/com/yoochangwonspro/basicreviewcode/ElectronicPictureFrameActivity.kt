@@ -79,7 +79,7 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
             val pictureUriListSize = pictureUriList.size
             intent.putExtra("pictureUriListSize", pictureUriListSize)
             pictureUriList.forEachIndexed { index, uri ->
-                intent.putExtra("photo$index", uri)
+                intent.putExtra("photo$index", uri.toString())
             }
         }
     }
