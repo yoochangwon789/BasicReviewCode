@@ -54,18 +54,24 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
                 shouldShowRequestPermissionRationale(
                     android.Manifest.permission.READ_EXTERNAL_STORAGE
                 ) -> {
-
+                    showPermissionContextPotUp()
                 }
 
                 else -> {
-
+                    requestPermissions(
+                        arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                        1000
+                    )
                 }
             }
-
         }
     }
 
     private fun initPictureElectronicPictureFrame() {
+
+    }
+
+    private fun showPermissionContextPotUp() {
 
     }
 }
