@@ -1,5 +1,6 @@
 package com.yoochangwonspro.basicreviewcode
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -13,6 +14,8 @@ class DetailElectronicPictureFrameActivity : AppCompatActivity() {
     private val electronicPictureImageView: ImageView by lazy {
         findViewById(R.id.electronic_picture_image_view)
     }
+
+    private val pictureUriList = mutableListOf<Uri>()
 
     private var currentPosition = 0
 

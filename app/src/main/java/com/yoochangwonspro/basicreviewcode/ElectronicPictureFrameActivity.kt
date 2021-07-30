@@ -75,7 +75,12 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
 
     private fun initPictureElectronicPictureFrame() {
         pictureElectronicPictureFrameButton.setOnClickListener {
-
+            val intent = Intent(this, DetailElectronicPictureFrameActivity::class.java)
+            val pictureUriListSize = pictureUriList.size
+            intent.putExtra("pictureUriListSize", pictureUriListSize)
+            pictureUriList.forEachIndexed { index, uri ->
+                intent.putExtra("photo$index", uri)
+            }
         }
     }
 
