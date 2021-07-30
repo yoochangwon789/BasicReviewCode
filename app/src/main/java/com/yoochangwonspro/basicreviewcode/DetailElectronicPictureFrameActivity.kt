@@ -3,6 +3,7 @@ package com.yoochangwonspro.basicreviewcode
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import kotlin.concurrent.timer
 
@@ -29,12 +30,26 @@ class DetailElectronicPictureFrameActivity : AppCompatActivity() {
             val pictureUri = intent.getStringExtra("photo$i")
             pictureUriList.add(Uri.parse(pictureUri))
         }
+
+        startTimer()
     }
 
     fun startTimer() {
         timer(period = 5000) {
             runOnUiThread {
+                val current = currentPosition
+                val next = if (pictureUriList.size - 1 <= currentPosition) 0 else currentPosition + 1
 
+                electronicBackGroundImageView.setImageURI(pictureUriList[current])
+
+                electronicPictureImageView.alpha = 0f
+
+                electronicPictureImageView.animate()
+                    .alpha(1.0f)
+                    .setDuration(1000)
+                    .start()
+
+                currentPosition = next
             }
         }
     }

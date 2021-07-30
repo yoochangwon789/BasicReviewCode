@@ -75,12 +75,18 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
 
     private fun initPictureElectronicPictureFrame() {
         pictureElectronicPictureFrameButton.setOnClickListener {
+            if (pictureUriList.isEmpty()) {
+                Toast.makeText(this, "출력할 사진이 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val intent = Intent(this, DetailElectronicPictureFrameActivity::class.java)
             val pictureUriListSize = pictureUriList.size
             intent.putExtra("pictureUriListSize", pictureUriListSize)
             pictureUriList.forEachIndexed { index, uri ->
                 intent.putExtra("photo$index", uri.toString())
             }
+            startActivity(intent)
         }
     }
 
@@ -106,7 +112,6 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
                 pictureUriList.add(selectedUri)
                 pictureFrameImageViewList[pictureUriList.size - 1]
                     .setImageURI(selectedUri)
-                Log.d("pictureUriList.size" , "${pictureUriList.size}")
 
                 if (pictureUriList.size == 6) {
                     Toast.makeText(this, "사진이 가득 찼습니다.", Toast.LENGTH_SHORT).show()
