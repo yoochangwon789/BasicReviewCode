@@ -53,7 +53,7 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
                 ContextCompat.checkSelfPermission(
                     this, android.Manifest.permission.READ_EXTERNAL_STORAGE
                 ) == PackageManager.PERMISSION_GRANTED -> {
-
+                    navigateImage()
                 }
 
                 shouldShowRequestPermissionRationale(
@@ -113,6 +113,20 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        when (requestCode) {
+            1000 -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    navigateImage()
+                }
+                else {
+                    Toast.makeText(this, "권한이 거부하였습니다.",Toast.LENGTH_SHORT).show()
+                }
+            }
+            else -> {
+                //
+            }
+        }
     }
 
     private fun initPictureElectronicPictureFrame() {
