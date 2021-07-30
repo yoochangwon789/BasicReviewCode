@@ -1,6 +1,7 @@
 package com.yoochangwonspro.basicreviewcode
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -68,8 +69,16 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
         }
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
     private fun initPictureElectronicPictureFrame() {
-        pic
+
     }
 
     private fun showPermissionContextPotUp() {
