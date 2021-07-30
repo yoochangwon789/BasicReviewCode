@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -91,14 +92,15 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
             val selectedUri: Uri? = intent?.data
 
             if (selectedUri != null) {
+                pictureUriList.add(selectedUri)
+                pictureFrameImageViewList[pictureUriList.size - 1]
+                    .setImageURI(selectedUri)
+                Log.d("pictureUriList.size" , "${pictureUriList.size}")
+
                 if (pictureUriList.size == 6) {
                     Toast.makeText(this, "사진이 가득 찼습니다.", Toast.LENGTH_SHORT).show()
                     return@registerForActivityResult
                 }
-
-                pictureUriList.add(selectedUri)
-                pictureFrameImageViewList[pictureUriList.size - 1]
-                    .setImageURI(selectedUri)
             }
             else {
                 Toast.makeText(this, "사진을 가져오지 못했습니다.", Toast.LENGTH_SHORT).show()
@@ -120,7 +122,7 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
                     navigateImage()
                 }
                 else {
-                    Toast.makeText(this, "권한이 거부하였습니다.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "권한을 거부하였습니다.",Toast.LENGTH_SHORT).show()
                 }
             }
             else -> {
