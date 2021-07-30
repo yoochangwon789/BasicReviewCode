@@ -96,7 +96,6 @@ class CalculatorActivity : AppCompatActivity() {
             return
         }
 
-
         expressionTextView.append(number)
 
         resultTextView.text = calculatorExpression()

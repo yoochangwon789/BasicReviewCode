@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicReviewCode">
+        <activity android:name=".ElectronicPictureFrameActivity"></activity>
         <activity android:name=".CalculatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +22,7 @@
             android:theme="@style/Theme.BasicReviewCodeNoTopBar" />
         <activity
             android:name=".SecretDiaryActivity"
-            android:theme="@style/Theme.BasicReviewCodeNoTopBar">
-
-        </activity>
+            android:theme="@style/Theme.BasicReviewCodeNoTopBar"></activity>
         <activity android:name=".LottoLotteryActivity" />
         <activity android:name=".MainActivity" />
     </application>
