@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 
 class ElectronicPictureFrameActivity : AppCompatActivity() {
@@ -72,6 +73,14 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
     }
 
     private fun showPermissionContextPotUp() {
-
+        AlertDialog.Builder(this)
+            .setTitle("권한이 필요합니다")
+            .setMessage("전자 액자 앱에서 사진을 불러오기 위해 권한이 필요합니다.")
+            .setPositiveButton("동의하기") { _, _ ->
+                requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1000)
+            }
+            .setNegativeButton("취소하기") { _, _ -> }
+            .create()
+            .show()
     }
 }
