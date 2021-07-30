@@ -34,5 +34,16 @@ class ElectronicPictureFrameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_electronic_picture_frame)
+
+        initPictureAddButton()
+        initPictureElectronicPictureFrame()
+    }
+
+    private fun initPictureAddButton() {
+
+    }
+
+    private fun initPictureElectronicPictureFrame() {
+
     }
 }
