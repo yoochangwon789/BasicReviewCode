@@ -31,7 +31,7 @@ class DetailElectronicPictureFrameActivity : AppCompatActivity() {
         pictureGetUri()
     }
 
-    fun pictureGetUri() {
+    private fun pictureGetUri() {
         val pictureUriSize = intent.getIntExtra("pictureUriListSize", 0)
         for (i in 0 until pictureUriSize) {
             intent.getStringExtra("photo$i")?.let {
@@ -40,7 +40,7 @@ class DetailElectronicPictureFrameActivity : AppCompatActivity() {
         }
     }
 
-    fun startTimer() {
+    private fun startTimer() {
         timer = timer(period = 5000) {
             runOnUiThread {
                 val current = currentPosition
@@ -49,6 +49,7 @@ class DetailElectronicPictureFrameActivity : AppCompatActivity() {
                 electronicBackGroundImageView.setImageURI(pictureUriList[current])
 
                 electronicPictureImageView.alpha = 0f
+                electronicPictureImageView.setImageURI(pictureUriList[next])
 
                 electronicPictureImageView.animate()
                     .alpha(1.0f)
@@ -58,5 +59,20 @@ class DetailElectronicPictureFrameActivity : AppCompatActivity() {
                 currentPosition = next
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        startTimer()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        timer?.cancel()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        timer?.cancel()
     }
 }
