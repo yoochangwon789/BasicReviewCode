@@ -63,4 +63,8 @@ class TomatoTimerActivity : AppCompatActivity() {
         minTextView.text = "%02d'".format(remainMillionSeconds / 60)
         secondTextView.text = "%02d".format(remainMillionSeconds % 60)
     }
+
+    private fun updateSeekBar(millionSeconds: Long) {
+        seekBar.progress = (millionSeconds / 1000 / 60).toInt()
+    }
 }
