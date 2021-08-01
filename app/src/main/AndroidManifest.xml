@@ -11,15 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicReviewCode">
-        <activity android:name=".DetailElectronicPictureFrameActivity"></activity>
-        <activity android:name=".ElectronicPictureFrameActivity">
+        <activity android:name=".TomatoTimerActivity"
+            android:theme="@style/Theme.BasicReviewCodeNoTopBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CalculatorActivity"></activity>
+        <activity android:name=".DetailElectronicPictureFrameActivity" />
+        <activity android:name=".ElectronicPictureFrameActivity">
+
+        </activity>
+        <activity android:name=".CalculatorActivity" />
         <activity
             android:name=".DetailDiaryActivity"
             android:theme="@style/Theme.BasicReviewCodeNoTopBar" />

@@ -11,4 +11,7 @@
     <color name="buttonBackGround">#333030</color>
     <color name="expressionButton">#EA9B46</color>
     <color name="resultButtonBackGround">#887A7A</color>
+
+    <color name="pomodoro_red">#FFD32F2F</color>
+    <color name="transparent">#00000000</color>
 </resources>
