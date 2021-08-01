@@ -56,4 +56,11 @@ class TomatoTimerActivity : AppCompatActivity() {
             }
         )
     }
+
+    private fun updateDownTimer(millionSeconds: Long) {
+        val remainMillionSeconds = millionSeconds / 1000
+
+        minTextView.text = "%02d'".format(remainMillionSeconds / 60)
+        secondTextView.text = "%02d".format(remainMillionSeconds % 60)
+    }
 }
