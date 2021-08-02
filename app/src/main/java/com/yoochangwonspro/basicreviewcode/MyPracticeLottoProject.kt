@@ -2,6 +2,7 @@ package com.yoochangwonspro.basicreviewcode
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
@@ -55,6 +56,7 @@ class MyPracticeLottoProject : AppCompatActivity() {
 
         addButton()
         lottoResetButton()
+        lottoRandomNumberButton()
     }
 
     private fun addButton(){
@@ -90,6 +92,12 @@ class MyPracticeLottoProject : AppCompatActivity() {
     }
 
     private fun lottoRandomNumberButton() {
+        lottoRandomButton.setOnClickListener {
+
+        }
+    }
+
+    private fun randomNumberSetList(): List<Int> {
 
     }
 
