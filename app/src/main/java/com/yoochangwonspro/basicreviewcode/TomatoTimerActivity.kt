@@ -33,6 +33,7 @@ class TomatoTimerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tomato_timer)
 
         initSeekBar()
+        initSound()
     }
 
     private fun initSeekBar() {
@@ -44,15 +45,22 @@ class TomatoTimerActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     if (fromUser) {
+                        updateDownTimer(progress * 1000 * 60L)
                     }
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
+                    stopCountDownTimer()
                 }
 
                 override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                    seekBar ?: return
 
+                    if (seekBar.progress == 0) {
+                        stopCountDownTimer()
+                    } else {
+                        startCountDownTimer()
+                    }
                 }
 
             }
@@ -60,7 +68,7 @@ class TomatoTimerActivity : AppCompatActivity() {
     }
 
     private fun createCountDownTimer(millionSeconds: Long) =
-        object : CountDownTimer(millionSeconds, 1L) {
+        object : CountDownTimer(millionSeconds, 1000L) {
 
             override fun onTick(millisUntilFinished: Long) {
                 updateDownTimer(millisUntilFinished)
@@ -74,7 +82,7 @@ class TomatoTimerActivity : AppCompatActivity() {
 
     private fun startCountDownTimer() {
         currentPositionTimer = createCountDownTimer(seekBar.progress * 60 * 1000L).start()
-        currentPositionTimer = null
+        currentPositionTimer?.start()
 
         tickBellSoundPoolId?.let {
             soundPool.play(it, 1F, 1F, 0, -1, 1F)
@@ -98,8 +106,8 @@ class TomatoTimerActivity : AppCompatActivity() {
     }
 
     private fun initSound() {
-        tickBellSoundPoolId = soundPool.load(this, R.raw.timer_ticking, 0)
-        bellSoundPoolId = soundPool.load(this, R.raw.timer_bell, 0)
+        tickBellSoundPoolId = soundPool.load(this, R.raw.timer_ticking, 1)
+        bellSoundPoolId = soundPool.load(this, R.raw.timer_bell, 1)
     }
 
     @SuppressLint("SetTextI18n")
