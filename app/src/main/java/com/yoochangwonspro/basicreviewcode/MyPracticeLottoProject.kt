@@ -67,4 +67,8 @@ class MyPracticeLottoProject : AppCompatActivity() {
             lottoTextNumber.isVisible = true
         }
     }
+
+    private fun lottoBackGroundNumber(value: Int, testView: TextView) {
+
+    }
 }
