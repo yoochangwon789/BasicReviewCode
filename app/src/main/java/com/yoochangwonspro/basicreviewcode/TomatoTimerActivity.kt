@@ -61,8 +61,9 @@ class TomatoTimerActivity : AppCompatActivity() {
 
     }
 
-    private fun createSoundPoll() {
-
+    private fun initSound() {
+        tickBellSoundPoolId = soundPool.load(this, R.raw.timer_ticking, 0)
+        bellSoundPoolId = soundPool.load(this, R.raw.timer_bell, 0)
     }
 
     private fun updateDownTimer(millionSeconds: Long) {
