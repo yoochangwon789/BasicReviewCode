@@ -36,6 +36,21 @@ class TomatoTimerActivity : AppCompatActivity() {
         initSound()
     }
 
+    override fun onPause() {
+        super.onPause()
+        soundPool.autoPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        soundPool.autoResume()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        soundPool.release()
+    }
+
     private fun initSeekBar() {
         seekBar.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
@@ -45,7 +60,7 @@ class TomatoTimerActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     if (fromUser) {
-                        updateDownTimer(progress * 1000 * 60L)
+                        updateDownTimer(progress * 60 * 60L)
                     }
                 }
 
