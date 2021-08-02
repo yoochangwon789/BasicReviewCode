@@ -57,6 +57,11 @@ class MyPracticeLottoProject : AppCompatActivity() {
     private fun addButton(){
         lottoAddButton.setOnClickListener {
 
+            if (primaryLottoNumberSet.size >= 5) {
+                Toast.makeText(this, "5개 까지 추가가 가능합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (primaryLottoNumberSet.contains(numberPicker.value)) {
                 Toast.makeText(this, "중복된 번호는 사용할 수 없습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
