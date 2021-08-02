@@ -79,6 +79,16 @@ class TomatoTimerActivity : AppCompatActivity() {
         }
     }
 
+    private fun completeCountDownTimer() {
+        updateSeekBar(0)
+        updateSeekBar(0)
+
+        soundPool.autoPause()
+        bellSoundPoolId?.let {
+            soundPool.play(it, 1F, 1F, 0, -1, 1F)
+        }
+    }
+
     private fun initSound() {
         tickBellSoundPoolId = soundPool.load(this, R.raw.timer_ticking, 0)
         bellSoundPoolId = soundPool.load(this, R.raw.timer_bell, 0)
