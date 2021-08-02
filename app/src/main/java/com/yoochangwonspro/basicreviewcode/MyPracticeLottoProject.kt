@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 
 class MyPracticeLottoProject : AppCompatActivity() {
@@ -65,10 +66,18 @@ class MyPracticeLottoProject : AppCompatActivity() {
             val lottoTextNumber = lottoNumberList[primaryLottoNumberSet.size - 1]
             lottoTextNumber.text = numberPicker.value.toString()
             lottoTextNumber.isVisible = true
+
+            lottoBackGroundNumber(numberPicker.value, lottoTextNumber)
         }
     }
 
-    private fun lottoBackGroundNumber(value: Int, testView: TextView) {
-
+    private fun lottoBackGroundNumber(value: Int, textView: TextView) {
+        when (value) {
+            in 1..10 -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_blue)
+            in 11..20 -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_red)
+            in 21..30 -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_gray)
+            in 31..40 -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_pupple)
+            else -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_green)
+        }
     }
 }
