@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 
 class MyPracticeLottoProject : AppCompatActivity() {
@@ -54,6 +55,11 @@ class MyPracticeLottoProject : AppCompatActivity() {
 
     private fun addButton(){
         lottoAddButton.setOnClickListener {
+
+            if (primaryLottoNumberSet.contains(numberPicker.value)) {
+                Toast.makeText(this, "중복된 번호는 사용할 수 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             primaryLottoNumberSet.add(numberPicker.value)
             val lottoTextNumber = lottoNumberList[primaryLottoNumberSet.size - 1]
