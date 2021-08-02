@@ -87,6 +87,10 @@ class MyPracticeLottoProject : AppCompatActivity() {
         }
     }
 
+    private fun lottoRandomNumberButton() {
+
+    }
+
     private fun lottoResetButton() {
         lottoResetButton.setOnClickListener {
            lottoNumberList.forEach {
