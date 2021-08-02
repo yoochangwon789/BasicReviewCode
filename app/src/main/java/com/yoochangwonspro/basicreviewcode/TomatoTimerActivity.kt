@@ -57,9 +57,17 @@ class TomatoTimerActivity : AppCompatActivity() {
         )
     }
 
-    private fun createCountDownTimer(millionSeconds: Long) {
+    private fun createCountDownTimer(millionSeconds: Long) =
+        object : CountDownTimer(millionSeconds, 1L) {
+            override fun onTick(millisUntilFinished: Long) {
 
-    }
+            }
+
+            override fun onFinish() {
+
+            }
+
+        }
 
     private fun initSound() {
         tickBellSoundPoolId = soundPool.load(this, R.raw.timer_ticking, 0)
