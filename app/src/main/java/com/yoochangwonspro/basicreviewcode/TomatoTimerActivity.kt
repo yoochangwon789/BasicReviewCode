@@ -24,8 +24,8 @@ class TomatoTimerActivity : AppCompatActivity() {
     private var currentPositionTimer: CountDownTimer? = null
 
     private val soundPool: SoundPool = SoundPool.Builder().build()
-    private var tickBellSoundPool: SoundPool? = null
-    private var bellSoundPool: SoundPool? = null
+    private var tickBellSoundPoolId: Int? = null
+    private var bellSoundPoolId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,9 +57,12 @@ class TomatoTimerActivity : AppCompatActivity() {
         )
     }
 
+    private fun createCountDownTimer(millionSeconds: Long) {
+
+    }
+
     private fun createSoundPoll() {
-        tickBellSoundPool?.play(R.raw.timer_ticking, 1F, 1F, 0, -1, 1F)
-        bellSoundPool?.play(R.raw.timer_ticking, 1F, 1F, 0, -1, 1F)
+
     }
 
     private fun updateDownTimer(millionSeconds: Long) {
