@@ -52,6 +52,7 @@ class MyPracticeLottoProject : AppCompatActivity() {
         numberPicker.maxValue = 45
 
         addButton()
+        lottoResetButton()
     }
 
     private fun addButton(){
@@ -83,6 +84,15 @@ class MyPracticeLottoProject : AppCompatActivity() {
             in 21..30 -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_gray)
             in 31..40 -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_pupple)
             else -> textView.background = ContextCompat.getDrawable(this, R.drawable.circle_green)
+        }
+    }
+
+    private fun lottoResetButton() {
+        lottoResetButton.setOnClickListener {
+           lottoNumberList.forEach {
+               it.isVisible = false
+           }
+            primaryLottoNumberSet.clear()
         }
     }
 }
