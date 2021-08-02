@@ -48,4 +48,8 @@ class MyPracticeLottoProject : AppCompatActivity() {
         numberPicker.minValue = 1
         numberPicker.maxValue = 45
     }
+
+    private fun addButton(){
+
+    }
 }
