@@ -44,6 +44,8 @@ class MyPracticeLottoProject : AppCompatActivity() {
 
     private val primaryLottoNumberSet = mutableSetOf<Int>()
 
+    private var checkLottoSystem: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_practice_lotto_project)
