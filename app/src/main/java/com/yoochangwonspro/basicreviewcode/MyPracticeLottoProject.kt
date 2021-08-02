@@ -44,5 +44,8 @@ class MyPracticeLottoProject : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_practice_lotto_project)
+
+        numberPicker.minValue = 1
+        numberPicker.maxValue = 45
     }
 }
