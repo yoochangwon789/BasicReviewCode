@@ -60,7 +60,7 @@ class TomatoTimerActivity : AppCompatActivity() {
                     fromUser: Boolean
                 ) {
                     if (fromUser) {
-                        updateDownTimer(progress * 60 * 60L)
+                        updateDownTimer(progress * 60 * 1000L)
                     }
                 }
 
