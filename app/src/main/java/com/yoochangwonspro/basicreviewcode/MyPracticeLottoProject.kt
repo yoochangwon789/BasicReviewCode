@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
+import androidx.core.view.isVisible
 
 class MyPracticeLottoProject : AppCompatActivity() {
 
@@ -47,9 +48,17 @@ class MyPracticeLottoProject : AppCompatActivity() {
 
         numberPicker.minValue = 1
         numberPicker.maxValue = 45
+
+        addButton()
     }
 
     private fun addButton(){
+        lottoAddButton.setOnClickListener {
 
+            primaryLottoNumberSet.add(numberPicker.value)
+            val lottoTextNumber = lottoNumberList[primaryLottoNumberSet.size - 1]
+            lottoTextNumber.text = numberPicker.value.toString()
+            lottoTextNumber.isVisible = true
+        }
     }
 }
