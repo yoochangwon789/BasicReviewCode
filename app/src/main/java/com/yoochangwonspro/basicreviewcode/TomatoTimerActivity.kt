@@ -43,7 +43,8 @@ class TomatoTimerActivity : AppCompatActivity() {
                     progress: Int,
                     fromUser: Boolean
                 ) {
-
+                    if (fromUser) {
+                    }
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -62,11 +63,12 @@ class TomatoTimerActivity : AppCompatActivity() {
         object : CountDownTimer(millionSeconds, 1L) {
 
             override fun onTick(millisUntilFinished: Long) {
-
+                updateDownTimer(millisUntilFinished)
+                updateSeekBar(millisUntilFinished)
             }
 
             override fun onFinish() {
-
+                completeCountDownTimer()
             }
         }
 
