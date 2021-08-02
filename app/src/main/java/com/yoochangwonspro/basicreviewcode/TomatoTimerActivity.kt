@@ -57,6 +57,11 @@ class TomatoTimerActivity : AppCompatActivity() {
         )
     }
 
+    private fun createSoundPoll() {
+        tickBellSoundPool?.play(R.raw.timer_ticking, 1F, 1F, 0, -1, 1F)
+        bellSoundPool?.play(R.raw.timer_ticking, 1F, 1F, 0, -1, 1F)
+    }
+
     private fun updateDownTimer(millionSeconds: Long) {
         val remainMillionSeconds = millionSeconds / 1000
 
