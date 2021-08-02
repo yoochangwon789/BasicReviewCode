@@ -98,7 +98,15 @@ class MyPracticeLottoProject : AppCompatActivity() {
     }
 
     private fun randomNumberSetList(): List<Int> {
+        val randomNumberList = mutableListOf<Int>()
+        val returnRandomNumberList = mutableListOf<Int>()
 
+        for (i in 1..45) {
+            randomNumberList.add(i)
+        }
+        randomNumberList.shuffle()
+
+        return randomNumberList
     }
 
     private fun lottoResetButton() {
