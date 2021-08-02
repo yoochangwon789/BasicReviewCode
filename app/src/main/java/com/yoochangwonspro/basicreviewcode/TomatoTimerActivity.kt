@@ -1,5 +1,6 @@
 package com.yoochangwonspro.basicreviewcode
 
+import android.annotation.SuppressLint
 import android.media.SoundPool
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -59,6 +60,7 @@ class TomatoTimerActivity : AppCompatActivity() {
 
     private fun createCountDownTimer(millionSeconds: Long) =
         object : CountDownTimer(millionSeconds, 1L) {
+
             override fun onTick(millisUntilFinished: Long) {
 
             }
@@ -66,14 +68,23 @@ class TomatoTimerActivity : AppCompatActivity() {
             override fun onFinish() {
 
             }
-
         }
+
+    private fun startCountDownTimer() {
+        currentPositionTimer = createCountDownTimer(seekBar.progress * 60 * 1000L).start()
+        currentPositionTimer = null
+
+        tickBellSoundPoolId?.let {
+            soundPool.play(it, 1F, 1F, 0, -1, 1F)
+        }
+    }
 
     private fun initSound() {
         tickBellSoundPoolId = soundPool.load(this, R.raw.timer_ticking, 0)
         bellSoundPoolId = soundPool.load(this, R.raw.timer_bell, 0)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateDownTimer(millionSeconds: Long) {
         val remainMillionSeconds = millionSeconds / 1000
 
