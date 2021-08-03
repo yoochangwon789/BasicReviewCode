@@ -156,6 +156,16 @@ class MyPracticeLottoProject : AppCompatActivity() {
                 Toast.makeText(this, "초기화 버튼을 사용해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            else {
+                val textViewIndex = lottoNumberList[primaryLottoNumberSet.size - 1]
+                val setIndex = primaryLottoNumberSet.size
+
+                Log.d("textViewIndex", "$textViewIndex")
+                Log.d("setIndex", "$setIndex")
+
+                textViewIndex.isVisible = false
+                primaryLottoNumberSet.remove(setIndex)
+            }
         }
     }
 }
