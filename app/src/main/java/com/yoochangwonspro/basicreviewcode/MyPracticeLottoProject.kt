@@ -59,7 +59,7 @@ class MyPracticeLottoProject : AppCompatActivity() {
         lottoRandomNumberButton()
     }
 
-    private fun addButton(){
+    private fun addButton() {
         lottoAddButton.setOnClickListener {
 
             if (primaryLottoNumberSet.size >= 5) {
@@ -99,20 +99,14 @@ class MyPracticeLottoProject : AppCompatActivity() {
     private fun lottoRandomNumberButton() {
         lottoRandomButton.setOnClickListener {
             val randomList = randomNumberSetList()
-            val randomReturnList = mutableListOf<Int>()
 
-            if (primaryLottoNumberSet.isEmpty()) {
-                for (i in 0..5) {
-                    randomReturnList.add(randomList[i])
-                }
-                randomReturnList.sort()
-                randomReturnList.forEachIndexed { index, i ->
-                    val lottoTextNumber = lottoNumberList[index]
-                    lottoTextNumber.text = randomReturnList[index].toString()
-                    lottoTextNumber.isVisible = true
+            randomList.forEachIndexed { index, i ->
+                val lottoTextNumber = lottoNumberList[index]
+                lottoTextNumber.text = i.toString()
+                lottoTextNumber.isVisible = true
 
-                    lottoBackGroundNumber(randomReturnList[index], lottoTextNumber)
-                }
+                lottoBackGroundNumber(i, lottoTextNumber)
+
                 checkLottoSystem = true
             }
         }
@@ -121,20 +115,36 @@ class MyPracticeLottoProject : AppCompatActivity() {
     private fun randomNumberSetList(): List<Int> {
         val randomNumberList = mutableListOf<Int>()
 
-        for (i in 1..45) {
-            randomNumberList.add(i)
-        }
-        randomNumberList.shuffle()
+        if (primaryLottoNumberSet.isEmpty()) {
+            for (i in 1..45) {
+                randomNumberList.add(i)
+            }
+            randomNumberList.shuffle()
+            val newList = randomNumberList.subList(0, 6)
+            newList.sort()
 
-        return randomNumberList
+            return newList
+        } else {
+            for (i in 1..45) {
+                if (primaryLottoNumberSet.contains(i)) continue
+                randomNumberList.add(i)
+            }
+            randomNumberList.shuffle()
+
+            val newList = primaryLottoNumberSet.toMutableList() + randomNumberList.subList(0,
+                6 - primaryLottoNumberSet.size)
+
+            return newList.sorted()
+        }
     }
 
     private fun lottoResetButton() {
         lottoResetButton.setOnClickListener {
-           lottoNumberList.forEach {
-               it.isVisible = false
-           }
+            lottoNumberList.forEach {
+                it.isVisible = false
+            }
             primaryLottoNumberSet.clear()
+            checkLottoSystem = false
         }
     }
 }
