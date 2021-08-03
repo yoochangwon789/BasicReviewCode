@@ -93,13 +93,27 @@ class MyPracticeLottoProject : AppCompatActivity() {
 
     private fun lottoRandomNumberButton() {
         lottoRandomButton.setOnClickListener {
+            val randomList = randomNumberSetList()
+            val randomReturnList = mutableListOf<Int>()
 
+            if (primaryLottoNumberSet.isEmpty()) {
+                for (i in 0..5) {
+                    randomReturnList.add(randomList[i])
+                }
+                randomReturnList.sort()
+                randomReturnList.forEachIndexed { index, i ->
+                    val lottoTextNumber = lottoNumberList[index]
+                    lottoTextNumber.text = randomReturnList[index].toString()
+                    lottoTextNumber.isVisible = true
+
+                    lottoBackGroundNumber(randomReturnList[index], lottoTextNumber)
+                }
+            }
         }
     }
 
     private fun randomNumberSetList(): List<Int> {
         val randomNumberList = mutableListOf<Int>()
-        val returnRandomNumberList = mutableListOf<Int>()
 
         for (i in 1..45) {
             randomNumberList.add(i)
