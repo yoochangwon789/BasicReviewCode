@@ -72,6 +72,11 @@ class MyPracticeLottoProject : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (checkLottoSystem) {
+                Toast.makeText(this, "번호를 추가할 수 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             primaryLottoNumberSet.add(numberPicker.value)
             val lottoTextNumber = lottoNumberList[primaryLottoNumberSet.size - 1]
             lottoTextNumber.text = numberPicker.value.toString()
@@ -108,6 +113,7 @@ class MyPracticeLottoProject : AppCompatActivity() {
 
                     lottoBackGroundNumber(randomReturnList[index], lottoTextNumber)
                 }
+                checkLottoSystem = true
             }
         }
     }
