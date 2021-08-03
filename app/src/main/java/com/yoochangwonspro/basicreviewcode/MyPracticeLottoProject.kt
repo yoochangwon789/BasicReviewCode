@@ -57,6 +57,7 @@ class MyPracticeLottoProject : AppCompatActivity() {
         addButton()
         lottoResetButton()
         lottoRandomNumberButton()
+        lottoRemoveButton()
     }
 
     private fun addButton() {
@@ -149,6 +150,12 @@ class MyPracticeLottoProject : AppCompatActivity() {
     }
 
     private fun lottoRemoveButton() {
+        lottoRemoveButton.setOnClickListener {
 
+            if (checkLottoSystem) {
+                Toast.makeText(this, "초기화 버튼을 사용해 주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+        }
     }
 }
