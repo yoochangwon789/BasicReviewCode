@@ -147,4 +147,8 @@ class MyPracticeLottoProject : AppCompatActivity() {
             checkLottoSystem = false
         }
     }
+
+    private fun lottoRemoveButton() {
+
+    }
 }
