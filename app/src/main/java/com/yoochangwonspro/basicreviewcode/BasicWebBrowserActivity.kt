@@ -33,6 +33,15 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         findViewById(R.id.web_swipe_refresh_layout)
     }
 
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basic_web_browser)
