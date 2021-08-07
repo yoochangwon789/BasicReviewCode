@@ -43,7 +43,11 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         webView.apply {
             webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
-            loadUrl("http://www.google.com")
+            loadUrl(MAIN_LOAD_URL)
         }
+    }
+
+    companion object {
+        private const val MAIN_LOAD_URL = "http://www.google.com"
     }
 }
