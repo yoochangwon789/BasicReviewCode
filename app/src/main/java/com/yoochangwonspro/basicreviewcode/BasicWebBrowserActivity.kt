@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.view.inputmethod.EditorInfo
+import android.webkit.URLUtil
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -39,6 +40,7 @@ class BasicWebBrowserActivity : AppCompatActivity() {
     private val swipeRefreshLayout: SwipeRefreshLayout by lazy {
         findViewById(R.id.web_swipe_refresh_layout)
     }
+
     private val webProgressBar: ContentLoadingProgressBar by lazy {
         findViewById(R.id.web_progress_bar)
     }
@@ -73,7 +75,13 @@ class BasicWebBrowserActivity : AppCompatActivity() {
     private fun bindViews() {
         addressEditText.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                webView.loadUrl(v.text.toString())
+                val actionTextUrl = v.text.toString()
+
+                if (URLUtil.isNetworkUrl(actionTextUrl)) {
+                    webView.loadUrl(actionTextUrl)
+                } else {
+                    webView.loadUrl("http://$actionTextUrl")
+                }
             }
             return@setOnEditorActionListener false
         }
