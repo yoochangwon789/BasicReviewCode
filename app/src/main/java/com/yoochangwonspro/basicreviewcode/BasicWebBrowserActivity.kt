@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.view.inputmethod.EditorInfo
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.EditText
@@ -58,6 +59,7 @@ class BasicWebBrowserActivity : AppCompatActivity() {
     private fun initViews() {
         webView.apply {
             webViewClient = WebViewClient()
+            webChromeClient = WebChromeClient()
             settings.javaScriptEnabled = true
             loadUrl(MAIN_LOAD_URL)
         }
@@ -81,6 +83,10 @@ class BasicWebBrowserActivity : AppCompatActivity() {
 
         forwardButton.setOnClickListener {
             webView.goForward()
+        }
+
+        swipeRefreshLayout.setOnRefreshListener {
+            webView.reload()
         }
     }
 
