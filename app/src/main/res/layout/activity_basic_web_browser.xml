@@ -68,7 +68,6 @@
             app:layout_constraintRight_toRightOf="@id/web_top_bar"
             tools:ignore="ContentDescription" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
