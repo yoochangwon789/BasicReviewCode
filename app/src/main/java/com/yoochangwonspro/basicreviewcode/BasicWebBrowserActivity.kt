@@ -90,6 +90,13 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         }
     }
 
+    inner class WebViewClient: android.webkit.WebViewClient() {
+        override fun onPageFinished(view: WebView?, url: String?) {
+            super.onPageFinished(view, url)
+            swipeRefreshLayout.isRefreshing = false
+        }
+    }
+
     companion object {
         private const val MAIN_LOAD_URL = "http://www.google.com"
     }
