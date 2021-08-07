@@ -3,6 +3,8 @@ package com.yoochangwonspro.basicreviewcode
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.view.inputmethod.EditorInfo
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.EditText
@@ -36,6 +38,7 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_basic_web_browser)
 
         initViews()
+        bindViews()
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -48,7 +51,12 @@ class BasicWebBrowserActivity : AppCompatActivity() {
     }
 
     private fun bindViews() {
-
+        addressEditText.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                webView.loadUrl(v.text.toString())
+            }
+            return@setOnEditorActionListener false
+        }
     }
 
     companion object {
