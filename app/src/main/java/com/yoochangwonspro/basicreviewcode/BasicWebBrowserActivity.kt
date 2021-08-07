@@ -2,16 +2,13 @@ package com.yoochangwonspro.basicreviewcode
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.view.inputmethod.EditorInfo
 import android.webkit.URLUtil
-import android.webkit.WebChromeClient
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
