@@ -10,6 +10,7 @@
         android:id="@+id/web_top_bar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
+        android:elevation="2dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,6 +21,7 @@
             android:layout_height="0dp"
             android:src="@drawable/ic_baseline_home_24"
             app:layout_constraintBottom_toBottomOf="@id/web_top_bar"
+            android:background="?attr/selectableItemBackground"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintLeft_toLeftOf="@id/web_top_bar"
             app:layout_constraintTop_toTopOf="@id/web_top_bar"
@@ -47,11 +49,25 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="?attr/selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="@id/web_top_bar"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintRight_toRightOf="@id/web_top_bar"
+            app:layout_constraintRight_toLeftOf="@id/web_forward_button"
             app:layout_constraintTop_toTopOf="@id/web_top_bar"
             tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/web_forward_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="@id/web_top_bar"
+            app:layout_constraintBottom_toBottomOf="@id/web_top_bar"
+            app:layout_constraintRight_toRightOf="@id/web_top_bar"
+            tools:ignore="ContentDescription" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
