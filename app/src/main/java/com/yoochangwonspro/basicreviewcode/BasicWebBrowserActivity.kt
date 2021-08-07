@@ -61,6 +61,10 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             webView.goBack()
         }
+
+        forwardButton.setOnClickListener {
+            webView.goForward()
+        }
     }
 
     companion object {
