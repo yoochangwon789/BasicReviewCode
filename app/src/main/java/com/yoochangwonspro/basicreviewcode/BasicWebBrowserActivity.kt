@@ -10,6 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.core.widget.ContentLoadingProgressBar
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 class BasicWebBrowserActivity : AppCompatActivity() {
@@ -36,6 +37,9 @@ class BasicWebBrowserActivity : AppCompatActivity() {
 
     private val swipeRefreshLayout: SwipeRefreshLayout by lazy {
         findViewById(R.id.web_swipe_refresh_layout)
+    }
+    private val webProgressBar: ContentLoadingProgressBar by lazy {
+        findViewById(R.id.web_progress_bar)
     }
 
     override fun onBackPressed() {
