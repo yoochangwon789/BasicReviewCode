@@ -87,4 +87,13 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/web_progress_bar"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/web_top_bar"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
