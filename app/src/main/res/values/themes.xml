@@ -16,7 +16,8 @@
 
     <style name="Theme.BasicReviewCodeNoTopBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="android:windowBackground">@color/pomodoro_red</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="statusBarBackground" tools:targetApi="l">@color/status_bar</item>
 
     </style>
 </resources>
