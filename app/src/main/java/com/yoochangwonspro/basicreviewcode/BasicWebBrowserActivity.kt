@@ -47,6 +47,10 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         }
     }
 
+    private fun bindViews() {
+
+    }
+
     companion object {
         private const val MAIN_LOAD_URL = "http://www.google.com"
     }
