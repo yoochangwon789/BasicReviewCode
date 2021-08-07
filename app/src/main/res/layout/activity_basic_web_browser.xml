@@ -25,6 +25,23 @@
             app:layout_constraintBottom_toBottomOf="@id/web_top_bar"
             tools:ignore="ContentDescription" />
 
+        <EditText
+            android:id="@+id/web_address_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:imeOptions="actionDone"
+            android:paddingHorizontal="10dp"
+            android:selectAllOnFocus="true"
+            android:inputType="textUri"
+            android:importantForAutofill="no"
+            android:background="@drawable/address_bar_background"
+            app:layout_constraintLeft_toRightOf="@id/web_home_btn"
+            app:layout_constraintTop_toTopOf="@id/web_top_bar"
+            app:layout_constraintBottom_toBottomOf="@id/web_top_bar"
+            app:layout_constraintRight_toRightOf="@id/web_top_bar"
+            tools:ignore="LabelFor" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
