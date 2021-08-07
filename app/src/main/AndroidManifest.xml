@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.BasicReviewCode">
-        <activity android:name=".BasicWebBrowserActivity">
+        <activity android:name=".BasicWebBrowserActivity"
+            android:theme="@style/Theme.BasicReviewCodeNoTopBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
