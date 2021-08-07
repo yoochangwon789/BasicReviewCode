@@ -57,6 +57,10 @@ class BasicWebBrowserActivity : AppCompatActivity() {
             }
             return@setOnEditorActionListener false
         }
+
+        backButton.setOnClickListener {
+            webView.goBack()
+        }
     }
 
     companion object {
