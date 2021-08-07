@@ -17,6 +17,10 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         findViewById(R.id.web_address_edit_text)
     }
 
+    private val homeButton: ImageButton by lazy {
+        findViewById(R.id.web_home_btn)
+    }
+
     private val backButton: ImageButton by lazy {
         findViewById(R.id.web_back_button)
     }
@@ -66,6 +70,8 @@ class BasicWebBrowserActivity : AppCompatActivity() {
             }
             return@setOnEditorActionListener false
         }
+
+
 
         backButton.setOnClickListener {
             webView.goBack()
