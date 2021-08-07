@@ -103,7 +103,7 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         }
     }
 
-    inner class WebChromeClient: android.webkit.WebChromeClient() {
+    inner class WebChromeClient : android.webkit.WebChromeClient() {
 
         override fun onProgressChanged(view: WebView?, newProgress: Int) {
             super.onProgressChanged(view, newProgress)
@@ -111,7 +111,7 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         }
     }
 
-    inner class WebViewClient: android.webkit.WebViewClient() {
+    inner class WebViewClient : android.webkit.WebViewClient() {
 
         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
             super.onPageStarted(view, url, favicon)
@@ -123,6 +123,8 @@ class BasicWebBrowserActivity : AppCompatActivity() {
 
             swipeRefreshLayout.isRefreshing = false
             webProgressBar.hide()
+
+            addressEditText.setText(url)
         }
     }
 
