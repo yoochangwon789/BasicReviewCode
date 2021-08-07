@@ -71,7 +71,9 @@ class BasicWebBrowserActivity : AppCompatActivity() {
             return@setOnEditorActionListener false
         }
 
-
+        homeButton.setOnClickListener {
+            webView.loadUrl(MAIN_LOAD_URL)
+        }
 
         backButton.setOnClickListener {
             webView.goBack()
