@@ -1,5 +1,6 @@
 package com.yoochangwonspro.basicreviewcode
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
@@ -37,7 +38,12 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         initViews()
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun initViews() {
-        webView.loadUrl("http://www.google.com")
+        webView.apply {
+            webViewClient = WebViewClient()
+            settings.javaScriptEnabled = true
+            loadUrl("http://www.google.com")
+        }
     }
 }
