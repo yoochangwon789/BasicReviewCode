@@ -1,6 +1,7 @@
 package com.yoochangwonspro.basicreviewcode
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -94,10 +95,26 @@ class BasicWebBrowserActivity : AppCompatActivity() {
         }
     }
 
+    inner class WebChromeClient: android.webkit.WebChromeClient() {
+
+        override fun onProgressChanged(view: WebView?, newProgress: Int) {
+            super.onProgressChanged(view, newProgress)
+            webProgressBar.progress = newProgress
+        }
+    }
+
     inner class WebViewClient: android.webkit.WebViewClient() {
+
+        override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+            super.onPageStarted(view, url, favicon)
+            webProgressBar.show()
+        }
+
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
+
             swipeRefreshLayout.isRefreshing = false
+            webProgressBar.hide()
         }
     }
 
