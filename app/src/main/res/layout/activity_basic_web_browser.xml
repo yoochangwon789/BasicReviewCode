@@ -14,7 +14,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-
+        <ImageButton
+            android:id="@+id/web_home_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            android:src="@drawable/ic_baseline_home_24"
+            app:layout_constraintLeft_toLeftOf="@id/web_top_bar"
+            app:layout_constraintTop_toTopOf="@id/web_top_bar"
+            app:layout_constraintBottom_toBottomOf="@id/web_top_bar"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
